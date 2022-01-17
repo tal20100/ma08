@@ -15,13 +15,11 @@ public class CSVReader implements Reader {
             String line = null;
             br.readLine(); //skip the first line
             while ((line = br.readLine()) != null) {
-                //if(!line.startsWith(Integer)){
                     String[] record = line.split(",");
 
                     FactoriesMap fm = new FactoriesMap();
                     Object object = fm.factoryMap("Report").create(record);
                     objectsArr.add(object);
-                //}
                 line = br.readLine();
             }
         } catch (Exception e) {

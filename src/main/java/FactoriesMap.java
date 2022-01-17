@@ -7,6 +7,7 @@ public class FactoriesMap {
         Map<String,Factory> factoryMap = new HashMap<>();
         ReportFactory reportFactory = new ReportFactory();
         factoryMap.put("Report", reportFactory);
+        factoryMap.put("LabTest", reportFactory);
 
         return factoryMap.get(objectName);
     }
