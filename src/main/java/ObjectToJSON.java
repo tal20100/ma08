@@ -1,8 +1,5 @@
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -11,25 +8,28 @@ public class ObjectToJSON {
 
     final int maxObjectsPerFile = 50000;
 
-    public void objectToJson(ArrayList<Object> objects){
+    public void objectToJson(ArrayList<Object> objects) throws IOException {
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         int fileCount = 1;
         int objectCount = 0;
-        String path = "C:\\Users\\Tal\\Desktop\\Course\\madaReportsProject\\src\\test\\java";
+        String path = "C:\\Users\\Tal\\Desktop\\Course\\mada_reports\\mada_reports";
         String fileName = "file";
         String fileType = ".json";
-        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectMapper objectMapper = new ObjectMapper().setDateFormat(df);
         File file =  new File(path+fileName+fileType);
         for(Object currentObj : objects){
-            if(fileCount % maxObjectsPerFile == 0){ //Creating a new file
+            if(objectCount % maxObjectsPerFile == 0){ //Creating a new file
                 fileName = "file" + fileCount;
                 file = new File(path+fileName+fileType);
                 fileCount++;
             }
-
             try {
-                objectMapper.setDateFormat(df);
-                objectMapper.writerWithDefaultPrettyPrinter().writeValue(file, currentObj);
+                FileWriter fw = new FileWriter(file, true);
+                BufferedWriter bw = new BufferedWriter(fw);
+                PrintWriter out = new PrintWriter(bw);
+                objectMapper.writerWithDefaultPrettyPrinter().writeValue(out, currentObj);
+                out.close();
+                objectCount++;
 
             } catch (IOException e) {
                 e.printStackTrace();
