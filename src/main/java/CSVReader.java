@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class CSVReader implements Reader {
 
     @Override
-    public ArrayList<Object> read(String path) {
+    public ArrayList<Object> read(String path, String objectName) {
         ArrayList<Object> objectsArr = new ArrayList<>();
         File file = new File(path);
 
@@ -18,7 +18,7 @@ public class CSVReader implements Reader {
                     String[] record = line.split(",");
 
                     FactoriesMap fm = new FactoriesMap();
-                    Object object = fm.factoryMap("Report").create(record);
+                    Object object = fm.factoryMap(objectName).create(record);
                     objectsArr.add(object);
                 line = br.readLine();
             }
