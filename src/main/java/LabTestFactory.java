@@ -1,10 +1,6 @@
-package Factories;
-
-import Factories.Factory;
 import health_care_provider.HealthCareInfoProvider;
 import health_care_provider.errors.InvalidIdException;
 import health_care_provider.models.PersonInsured;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;

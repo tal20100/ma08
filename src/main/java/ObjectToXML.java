@@ -1,15 +1,10 @@
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import health_care_provider.errors.InvalidIdException;
-
 import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-import static junit.framework.Assert.assertNotNull;
-
-public class ObjectToXML implements ObjectToFile{
+public class ObjectToXML implements ObjectToFile {
     final int maxObjectsPerFile = 50000;
 
     public void mapObject(ArrayList<Object> objects) throws IOException {
@@ -19,13 +14,13 @@ public class ObjectToXML implements ObjectToFile{
         String path = "C:\\Users\\Tal\\Desktop\\Course\\LABTESTS\\LABTESTS";
         String fileName = "file";
         String fileType = ".xml";
-        File file =  new File(path+fileName+fileType);
+        File file = new File(path + fileName + fileType);
         XmlMapper xmlMapper = (XmlMapper) new XmlMapper().setDateFormat(df);
 
-        for(Object currentObj : objects){
-            if(objectCount % maxObjectsPerFile == 0){ //Creating a new file
+        for (Object currentObj : objects) {
+            if (objectCount % maxObjectsPerFile == 0) { //Creating a new file
                 fileName = "file" + fileCount;
-                file = new File(path+fileName+fileType);
+                file = new File(path + fileName + fileType);
                 fileCount++;
             }
             try {
@@ -38,8 +33,9 @@ public class ObjectToXML implements ObjectToFile{
                 objectCount++;
             } catch (IOException e) {
                 e.printStackTrace();
+            } catch (Exception e) {
+                continue;
             }
-            catch(Exception e){continue;}
 
         }
 
