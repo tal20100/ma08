@@ -1,3 +1,7 @@
+package Factories;
+
+import Factories.Factory;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;

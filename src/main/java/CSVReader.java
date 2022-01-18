@@ -9,7 +9,6 @@ public class CSVReader implements Reader {
     public ArrayList<Object> read(String path, String objectName) {
         ArrayList<Object> objectsArr = new ArrayList<>();
         File file = new File(path);
-
         try {
             BufferedReader br = new BufferedReader(new FileReader(path));
             String line = null;
@@ -18,7 +17,7 @@ public class CSVReader implements Reader {
                 String[] record = line.split(",");
                 FactoriesMap fm = new FactoriesMap();
 
-                // TODO: 1/18/2022 : add error handling
+                // TODO: 1/18/2022 : add exception handling
                 if(objectName.equals("LabTest") && record[0].length()==9){
                     Object object = fm.factoryMap(objectName).create(record);
                     objectsArr.add(object);
