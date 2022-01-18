@@ -12,7 +12,7 @@ public class ObjectToJSON {
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         int fileCount = 1;
         int objectCount = 0;
-        String path = "C:\\Users\\Tal\\Desktop\\Course\\mada_reports\\mada_reports";
+        String path = "C:\\Users\\Tal\\Desktop\\Course\\LABTESTS\\LABTESTS";
         String fileName = "file";
         String fileType = ".json";
         ObjectMapper objectMapper = new ObjectMapper().setDateFormat(df);

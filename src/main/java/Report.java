@@ -1,5 +1,8 @@
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 import java.util.Date;
 
+@JsonPropertyOrder({ "MDACODE", "idNum", "idType", "firstName", "lastName", "city", "street", "buildingNumber", "barcode" , "getDate" , "takeDate" , "resultDate" })
 public class Report {
     private String MDACODE;
     private int idNum;

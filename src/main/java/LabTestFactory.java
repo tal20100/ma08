@@ -14,15 +14,16 @@ public class LabTestFactory extends Factory {
         String lastName = record[3];
         try {
             resultDate = new SimpleDateFormat("dd/MM/yyyy").parse(record[4]);
-            birthDate = new SimpleDateFormat("dd.MM.yyyy").parse(record[5]);
+            birthDate = new SimpleDateFormat("dd/MM/yyyy").parse(record[5]);
         } catch (ParseException e) {
             e.printStackTrace();
         }
         String labCode = record[6];
         String stickerNumber = record[7];
-        Result resultTestCorona = Result.resultFromString(record[8]);
+        int resultTestCorona = Integer.parseInt(record[8]);
         String variant = record[9];
         String testType = record[10];
+
 
         return new LabTest(idNum, idType, firstName, lastName, resultDate, birthDate, labCode, stickerNumber, resultTestCorona, variant, testType);
     }

@@ -9,11 +9,11 @@ public class LabTest {
     private Date birthDate;
     private String labCode;
     private String stickerNumber;
-    private Result resultTestCorona;
+    private int resultTestCorona;
     private String variant;
     private String testType;
 
-    public LabTest(int IDNum, int IDType, String firstName, String lastName, Date resultDate, Date birthDate, String labCode, String stickerNumber, Result resultTestCorona, String variant, String testType) {
+    public LabTest(int IDNum, int IDType, String firstName, String lastName, Date resultDate, Date birthDate, String labCode, String stickerNumber, int resultTestCorona, String variant, String testType) {
         this.IDNum = IDNum;
         this.IDType = IDType;
         this.firstName = firstName;
@@ -59,7 +59,7 @@ public class LabTest {
         return stickerNumber;
     }
 
-    public Result getResultTestCorona() {
+    public int getResultTestCorona() {
         return resultTestCorona;
     }
 

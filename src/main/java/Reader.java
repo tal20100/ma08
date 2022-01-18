@@ -1,5 +1,5 @@
 import java.util.ArrayList;
 
 public interface Reader {
-    public ArrayList<Object> read(String path);
+    public ArrayList<Object> read(String path, String objectName);
 }
