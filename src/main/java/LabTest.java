@@ -12,8 +12,11 @@ public class LabTest {
     private int resultTestCorona;
     private String variant;
     private String testType;
+    private Date join_date;
+    private int health_care_id;
+    private String health_care_name;
 
-    public LabTest(int IDNum, int IDType, String firstName, String lastName, Date resultDate, Date birthDate, String labCode, String stickerNumber, int resultTestCorona, String variant, String testType) {
+    public LabTest(int IDNum, int IDType, String firstName, String lastName, Date resultDate, Date birthDate, String labCode, String stickerNumber, int resultTestCorona, String variant, String testType, Date join_date, int health_care_id, String health_care_name) {
         this.IDNum = IDNum;
         this.IDType = IDType;
         this.firstName = firstName;
@@ -25,6 +28,9 @@ public class LabTest {
         this.resultTestCorona = resultTestCorona;
         this.variant = variant;
         this.testType = testType;
+        this.join_date = join_date;
+        this.health_care_id = health_care_id;
+        this.health_care_name = health_care_name;
     }
 
     public int getIDNum() {
@@ -69,5 +75,17 @@ public class LabTest {
 
     public String getTestType() {
         return testType;
+    }
+
+    public Date getJoin_date() {
+        return join_date;
+    }
+
+    public int getHealth_care_id() {
+        return health_care_id;
+    }
+
+    public String getHealth_care_name() {
+        return health_care_name;
     }
 }

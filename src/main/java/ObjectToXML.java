@@ -1,5 +1,6 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import health_care_provider.errors.InvalidIdException;
 
 import java.io.*;
 import java.text.DateFormat;
@@ -8,10 +9,10 @@ import java.util.ArrayList;
 
 import static junit.framework.Assert.assertNotNull;
 
-public class ObjectToXML {
+public class ObjectToXML implements ObjectToFile{
     final int maxObjectsPerFile = 50000;
 
-    public void objectToXML(ArrayList<Object> objects) throws IOException {
+    public void mapObject(ArrayList<Object> objects) throws IOException {
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         int fileCount = 1;
         int objectCount = 0;
@@ -35,10 +36,11 @@ public class ObjectToXML {
                 //xmlMapper.writeValue(out, currentObj);
                 out.close();
                 objectCount++;
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            catch(Exception e){continue;}
+
         }
 
     }

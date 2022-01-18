@@ -4,11 +4,11 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-public class ObjectToJSON {
+public class ObjectToJSON implements ObjectToFile{
 
     final int maxObjectsPerFile = 50000;
 
-    public void objectToJson(ArrayList<Object> objects) throws IOException {
+    public void mapObject(ArrayList<Object> objects) throws IOException {
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         int fileCount = 1;
         int objectCount = 0;
